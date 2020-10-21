@@ -1,0 +1,50 @@
+[
+  {
+    "id": 1,
+    "name": "Muchaco",
+    "price": 7,
+    "type": "single",
+    "image": "/pop1.png",
+    "amount": 1
+  },
+  {
+    "id": 2,
+    "name": "Crispy Taco",
+    "price": 7,
+    "type": "single",
+    "image": "/pop2.png",
+    "amount": 1
+  },
+  {
+    "id": 3,
+    "name": "Combo 1",
+    "price": 11,
+    "type": "combo",
+    "image": "/pop3.png",
+    "amount": 1
+  },
+  {
+    "id": 4,
+    "name": "Combo 2",
+    "price": 11,
+    "type": "combo",
+    "image": "/pop4.png",
+    "amount": 1
+  },
+  {
+    "id": 5,
+    "name": "Combo 3",
+    "price": 11,
+    "type": "combo",
+    "image": "/pop1.png",
+    "amount": 1
+  },
+  {
+    "id": 6,
+    "name": "Combo 4",
+    "price": 11,
+    "type": "combo",
+    "image": "/pop2.png",
+    "amount": 1
+  }
+]

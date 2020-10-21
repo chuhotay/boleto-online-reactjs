@@ -1,0 +1,46 @@
+@import "assets/sass/Helpers/Variables.scss";
+
+.btn-gradient {
+  background-image: -webkit-linear-gradient(169deg, $color-purple-1 17%, $color-purple-2 63%, $color-red 100%);
+  padding: $pd-1 $pd-2;
+  font-weight: 600;
+  border-radius: 25px;
+  display: inline-block;
+  transition: all 0.5s;
+  border: none;
+  color: $color-white;
+  &:hover {
+    box-shadow: 0px 10px 15px 0px rgba(59, 55, 188, 0.5);
+  }
+  &:focus {
+    outline: none;
+  }
+}
+.btn-gradient-square {
+  background-image: -webkit-linear-gradient(169deg, $color-purple-1 17%, $color-purple-2 63%, $color-red 100%);
+  padding: $pd-1 $pd-2;
+  font-weight: 600;
+  border-radius: 6px;
+  display: inline-block;
+  transition: all 0.5s;
+  border: none;
+  color: $color-white;
+  &:hover {
+    box-shadow: 0px 10px 15px 0px rgba(59, 55, 188, 0.5);
+  }
+  &:focus {
+    outline: none;
+  }
+}
+.btn-disabled {
+  background-color: silver;
+  padding: $pd-1 $pd-2;
+  font-weight: 600;
+  border-radius: 25px;
+  display: inline-block;
+  border: none;
+  color: $color-white;
+  &:hover {
+    cursor: no-drop;
+  }
+}

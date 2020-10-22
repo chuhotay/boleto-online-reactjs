@@ -1,0 +1,35 @@
+@import "assets/sass/helpers/variables";
+@import "assets/sass/helpers/mixins";
+
+.Container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  .Content {
+    img {
+      width: 300px;
+      height: 100px;
+      @include responsiveTo("col-sm") {
+        width: 350px;
+        height: 150px;
+      }
+      @include responsiveTo("col-md") {
+        width: 400px;
+        height: 200px;
+      }
+      @include responsiveTo("col-lg") {
+        width: 500px;
+        height: 300px;
+      }
+    }
+    p {
+      @include textStyle($fs-3, $fw-2, white, $ls-2);
+      margin: $mg-3 0;
+      @include responsiveTo("col") {
+        @include textStyle($fs-1, $fw-2, white, $ls-2);
+      }
+    }
+  }
+}

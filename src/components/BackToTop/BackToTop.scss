@@ -1,0 +1,18 @@
+@import "assets/sass/helpers/variables.scss";
+
+.back-to-top {
+  position: fixed;
+  bottom: 25px;
+  right: 25px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 6px;
+  background-color: $color-blue;
+  text-align: center;
+  cursor: pointer;
+  i {
+    color: $color-white;
+    font-weight: $fw-3;
+  }
+}

@@ -1,7 +1,12 @@
-@import "assets/sass/Helpers/Variables.scss";
+@import "assets/sass/helpers/variables.scss";
 
 .btn-gradient {
-  background-image: -webkit-linear-gradient(169deg, $color-purple-1 17%, $color-purple-2 63%, $color-red 100%);
+  background-image: -webkit-linear-gradient(
+    169deg,
+    $color-purple-1 17%,
+    $color-purple-2 63%,
+    $color-red 100%
+  );
   padding: $pd-1 $pd-2;
   font-weight: 600;
   border-radius: 25px;
@@ -17,7 +22,12 @@
   }
 }
 .btn-gradient-square {
-  background-image: -webkit-linear-gradient(169deg, $color-purple-1 17%, $color-purple-2 63%, $color-red 100%);
+  background-image: -webkit-linear-gradient(
+    169deg,
+    $color-purple-1 17%,
+    $color-purple-2 63%,
+    $color-red 100%
+  );
   padding: $pd-1 $pd-2;
   font-weight: 600;
   border-radius: 6px;

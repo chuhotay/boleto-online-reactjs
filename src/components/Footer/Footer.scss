@@ -1,0 +1,92 @@
+@import "assets/sass/helpers/variables.scss";
+@import "assets/sass/helpers/mixins.scss";
+
+.footer-section {
+  @include responsiveTo("col") {
+    background: $color-purple;
+  }
+  @include responsiveTo("col-lg") {
+    background: url("../../assets/images/footer-shape.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  .footer-top {
+    border-bottom: 1px solid #ffffff1a;
+    padding-top: 120px;
+    padding-bottom: $pd-1;
+    display: flex;
+    justify-content: space-between;
+    @include responsiveTo("col") {
+      flex-direction: column;
+    }
+    @include responsiveTo("col-md") {
+      flex-direction: row;
+    }
+    .social-icons {
+      display: flex;
+      @include responsiveTo("col") {
+        padding-top: $mg-3;
+      }
+      @include responsiveTo("col-md") {
+        flex-direction: row;
+        padding-top: 0;
+      }
+      li {
+        text-align: center;
+        margin: 0 $pd-1;
+        list-style: none;
+        border-radius: 50%;
+        color: $color-white;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        border: 1px solid rgba(194, 194, 194, 0.397);
+        transition: all 0.5s;
+        &:hover {
+          cursor: pointer;
+          background-color: $color-blue;
+        }
+      }
+    }
+  }
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    padding: $pd-2 0;
+    @include responsiveTo("col") {
+      flex-direction: column;
+    }
+    @include responsiveTo("col-lg") {
+      flex-direction: row;
+    }
+    .left {
+      p {
+        @include textStyle($fs-1, $fw-2, $color-white, $ls-1);
+        span {
+          @include textStyle($fs-1, $fw-2, $color-blue, $ls-1);
+        }
+      }
+    }
+    .links {
+      display: flex;
+      @include responsiveTo("col") {
+        flex-direction: column;
+      }
+      @include responsiveTo("col-md") {
+        flex-direction: row;
+      }
+      li {
+        list-style: none;
+        @include responsiveTo("col") {
+          padding-top: $pd-1;
+        }
+        @include responsiveTo("col-md") {
+          padding: 0 $pd-1 0 0;
+        }
+        a {
+          @include textStyle($fs-1, $fw-2, $color-white, $ls-1);
+        }
+      }
+    }
+  }
+}

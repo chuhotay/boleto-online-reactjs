@@ -3,7 +3,7 @@ import styles from "./SignIn.module.scss";
 import "assets/sass/components/button.scss";
 import { Link } from "react-router-dom";
 import Validator from "utils/Validator";
-import * as authActions from "redux/actions/authActions";
+import * as authActions from "redux/main/actions/authActions";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import PreLoader from "components/PreLoader";

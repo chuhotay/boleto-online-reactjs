@@ -1,0 +1,58 @@
+@import "assets/sass/helpers/variables.scss";
+@import "assets/sass/helpers/mixins.scss";
+
+.Content {
+  margin: 50px 0;
+  @include responsiveTo("col-lg") {
+    margin: 150px 0;
+  }
+  .Filter {
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+    padding: $pd-1 + 2 $pd-1;
+    .FilterShow,
+    .SortBy {
+      .Type {
+        padding-right: $pd-1;
+        @include textStyle($fs-1 - 2, $fw-2, rgba(255, 255, 255, 0.726), $ls-1);
+      }
+      .Option {
+        background-color: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        padding: $pd-1 - 2 $pd-2;
+        color: rgba(255, 255, 255, 0.726);
+        border-radius: 20px;
+        font-size: $fs-1 - 2;
+        option {
+          color: black;
+        }
+        &:focus {
+          outline: none;
+        }
+      }
+    }
+  }
+  .Pagination {
+    .Active3 {
+      .NumOfPage {
+        background: -webkit-linear-gradient(
+          169deg,
+          $color-purple-1 17%,
+          $color-purple-2 63%,
+          $color-red 100%
+        );
+        color: $color-white;
+        border: none;
+        border-radius: 50%;
+      }
+    }
+    li {
+      padding: 0 $pd-1;
+    }
+    a {
+      background-color: transparent;
+      border: none;
+      color: #7a89bb;
+    }
+  }
+}

@@ -1,4 +1,4 @@
-import * as authConstants from "redux/constants/authConstants";
+import * as authConstants from "redux/main/constants/authConstants";
 import { authServices } from "services/AuthServices";
 
 export const actUserSignIn = (userInfo, history, loading) => {

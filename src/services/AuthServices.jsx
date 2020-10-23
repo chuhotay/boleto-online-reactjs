@@ -1,6 +1,6 @@
 import apiCaller from "utils/apiCaller";
 
-export class AuthServices {
+class AuthServices {
   userSignIn = (userInfo) => {
     return apiCaller("QuanLyNguoiDung/DangNhap", "POST", userInfo);
   };

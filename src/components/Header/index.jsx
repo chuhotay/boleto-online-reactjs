@@ -3,41 +3,42 @@ import logo from "assets/images/logo.png";
 import "./Header.scss";
 import "assets/sass/components/button.scss";
 import { Link } from "react-router-dom";
+import * as localStorageUtils from "utils/localStorage";
 
 function Header() {
-  // const showInfoUserHandler = () => {
-  //   let username = getUserInfo();
-  //   return username ? (
-  //     <li className="nav-item dropdown ml-md-3 mt-3 mt-md-0">
-  //       <div
-  //         className="nav-link dropdown-toggle"
-  //         href="#"
-  //         id="navbarDropdown"
-  //         role="button"
-  //         data-toggle="dropdown"
-  //         aria-haspopup="true"
-  //         aria-expanded="false"
-  //       >
-  //         <i className="fa fa-user d-md-none"></i>
-  //         <span style={{ fontSize: "14px" }}>{username}</span>
-  //       </div>
-  //       <div className="dropdown-menu">
-  //         <Link to="/register" onClick={this.clearAccount}>
-  //           <div className="dropdown-item">Register</div>
-  //         </Link>
-  //         <div className="dropdown-item">Account</div>
-  //         <div className="dropdown-divider" />
-  //         <Link to="/" onClick={this.clearAccount}>
-  //           <div className="dropdown-item">Logout</div>
-  //         </Link>
-  //       </div>
-  //     </li>
-  //   ) : (
-  //     <Link to="/login" className="ml-md-3 mt-3 mt-md-0">
-  //       <button className="btn-gradient px-4">LOGIN</button>
-  //     </Link>
-  //   );
-  // };
+  const showInfoUserHandler = () => {
+    const userInfo = localStorageUtils.fetchFromStorage("userInfo");
+    return userInfo?.taiKhoan ? (
+      <li className="nav-item dropdown ml-md-3 mt-3 mt-md-0">
+        <div
+          className="nav-link dropdown-toggle"
+          href="#"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <i className="fa fa-user d-md-none"></i>
+          <span style={{ fontSize: "14px" }}>{userInfo.taiKhoan}</span>
+        </div>
+        <div className="dropdown-menu">
+          <Link to="/register" onClick={localStorageUtils.clearStorage}>
+            <div className="dropdown-item">Register</div>
+          </Link>
+          <div className="dropdown-item">Account</div>
+          <div className="dropdown-divider" />
+          <Link to="/" onClick={localStorageUtils.clearStorage}>
+            <div className="dropdown-item">Logout</div>
+          </Link>
+        </div>
+      </li>
+    ) : (
+      <Link to="/sign-in" className="ml-md-3 mt-3 mt-md-0">
+        <button className="btn-gradient px-4">LOGIN</button>
+      </Link>
+    );
+  };
   return (
     <nav
       className="navbar fixed-top navbar-expand-md navbar-dark py-4"
@@ -79,7 +80,7 @@ function Header() {
               CONTACT
             </a>
           </li>
-          {/* {this.showInfoUserHandler()} */}
+          {showInfoUserHandler()}
         </ul>
       </div>
     </nav>

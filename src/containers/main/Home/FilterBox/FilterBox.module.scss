@@ -1,0 +1,56 @@
+@import "assets/sass/helpers/variables.scss";
+@import "assets/sass/helpers/mixins.scss";
+
+.Search {
+  background: linear-gradient(
+      to right,
+      rgba(68, 47, 187, 0.801),
+      rgba(76, 16, 155, 0.555)
+    ),
+    url("../../../../assets/images/ticket-bg01.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  margin-top: -100px;
+  position: relative;
+  .Content {
+    padding: $pd-3;
+    .Header {
+      margin-bottom: $mg-2;
+      @include responsiveTo("col-lg") {
+        margin-bottom: $mg-4;
+      }
+      .Category {
+        @include textStyle($fs-1 - 2, $fw-2, $color-blue, $ls-2);
+        @include responsiveTo("col-md") {
+          @include textStyle($fs-1, $fw-2, $color-blue, $ls-2);
+        }
+      }
+      .Title {
+        @include textStyle($fs-1 + 2, $fw-3, $color-white, $ls-2);
+        @include responsiveTo("col-md") {
+          @include textStyle($fs-3, $fw-3, $color-white, $ls-2);
+        }
+      }
+    }
+    .Bottom {
+      .SearchForm {
+        .Type {
+          padding: 0 $pd-1;
+          color: $color-blue;
+        }
+        .Select {
+          margin-top: $mg-2;
+          width: 100%;
+          padding: 5px 5px;
+          border-radius: 4px;
+          background-color: rgba(255, 255, 255, 0.61);
+          @include textStyle($fs-1 - 2, $fw-2, $color-purple, $ls-1);
+          &:focus {
+            outline: none;
+          }
+        }
+      }
+    }
+  }
+}

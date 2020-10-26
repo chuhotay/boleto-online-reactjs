@@ -21,20 +21,6 @@ export const actFetchAllMovies = (groupId, currentPage, resPerPage) => {
   };
 };
 
-export const actViewTrailer = (videoTrailer) => {
-  return {
-    type: movieListConstants.VIEW_TRAILER,
-    payload: videoTrailer,
-  };
-};
-
-export const actIsOpenVideoTrailer = (isOpen) => {
-  return {
-    type: movieListConstants.IS_OPEN_VIDEO_TRAILER,
-    payload: isOpen,
-  };
-};
-
 export const actChangeShowingOption = (query) => {
   return {
     type: movieListConstants.CHANGE_SHOWING_OPTION,

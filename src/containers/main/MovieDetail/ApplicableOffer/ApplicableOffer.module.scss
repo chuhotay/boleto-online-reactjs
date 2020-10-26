@@ -1,0 +1,16 @@
+@import "assets/sass/helpers/variables.scss";
+@import "assets/sass/helpers/mixins.scss";
+
+.ApplicableOffer {
+  border: 1px dashed #1f3253;
+  border-radius: 10px;
+  padding: $pd-2 $pd-2 $pd-3 - 2;
+  margin-bottom: $mg-3;
+  .Title {
+    margin-top: $mg-2;
+    @include textStyle($fs-1 - 2, $fw-2, $color-white, $ls-1);
+  }
+  .Desc {
+    @include textStyle($fs-1 - 4, $fw-2, $color-purple-3, $ls-1);
+  }
+}

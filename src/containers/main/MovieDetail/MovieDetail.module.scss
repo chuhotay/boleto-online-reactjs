@@ -1,0 +1,20 @@
+@import "assets/sass/helpers/variables.scss";
+@import "assets/sass/helpers/mixins.scss";
+
+.Main {
+  @include responsiveTo("col") {
+    margin-top: 50px;
+  }
+  @include responsiveTo("col-lg") {
+    margin-top: 90px;
+  }
+  .Title {
+    color: $color-blue;
+    text-transform: uppercase;
+    margin-bottom: $mg-3;
+    display: block;
+    @include responsiveTo("col-lg") {
+      display: none;
+    }
+  }
+}

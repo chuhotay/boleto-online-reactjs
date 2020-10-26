@@ -7,12 +7,12 @@ import mainRoutes from "routes/mainRoutes";
 import NotFoundPage from "containers/shared/NotFoundPage";
 import TrailerPopup from "components/TrailerPopup";
 import { useSelector, useDispatch } from "react-redux";
-import * as movieListActions from "redux/main/actions/movieListActions";
+import * as sharedActions from "redux/main/actions/sharedActions";
 
 function App() {
-  const videoTrailer = useSelector((state) => state.movieList.videoTrailer);
+  const videoTrailer = useSelector((state) => state.shared.videoTrailer);
   const isOpenVideoTrailer = useSelector(
-    (state) => state.movieList.isOpenVideoTrailer
+    (state) => state.shared.isOpenVideoTrailer
   );
   const dispatch = useDispatch();
 
@@ -50,7 +50,7 @@ function App() {
       <TrailerPopup
         isOpen={isOpenVideoTrailer}
         onClose={() => {
-          dispatch(movieListActions.actIsOpenVideoTrailer(false));
+          dispatch(sharedActions.actIsOpenVideoTrailer(false));
         }}
         videoId={videoTrailer}
       />

@@ -4,7 +4,7 @@ import playButton from "assets/images/play-button.png";
 import cake from "assets/images/cake.png";
 import tomato from "assets/images/tomato.png";
 import { Link } from "react-router-dom";
-import * as movieListActions from "redux/main/actions/movieListActions";
+import * as sharedActions from "redux/main/actions/sharedActions";
 import { useDispatch } from "react-redux";
 import getIdVideoTrailer from "utils/getIdVideoTrailer";
 
@@ -15,7 +15,7 @@ function MovieItem(props) {
     <div
       className={`${styles.MovieItem} col-6 col-sm-4 col-md-4 col-lg-3 col-xl-3 mt-5`}
     >
-      <Link to={`/movie-details/${maPhim}`}>
+      <Link to={`/movie-detail/${maPhim}`}>
         <div
           className={`${styles.CardContent} card border-0`}
           style={{ backgroundColor: "#032055" }}
@@ -50,9 +50,9 @@ function MovieItem(props) {
         className={styles.ViewTrailer}
         onClick={() => {
           dispatch(
-            movieListActions.actViewTrailer(getIdVideoTrailer(videoTrailer))
+            sharedActions.actViewTrailer(getIdVideoTrailer(videoTrailer))
           );
-          dispatch(movieListActions.actIsOpenVideoTrailer(true));
+          dispatch(sharedActions.actIsOpenVideoTrailer(true));
         }}
       >
         <img className="w-100" src={playButton} alt="play-button" />

@@ -9,6 +9,7 @@ import MovieItem from "./MovieItem";
 
 function MovieList() {
   const [isFetchMovies, setIsFetchMovies] = useState(false);
+
   const [changeShowing, setChangeShowing] = useState({
     numOfMovieShowing: 12,
     sortBy: 1,
@@ -16,9 +17,9 @@ function MovieList() {
 
   const [currentPage, setCurrentPage] = useState(1);
 
-  const [numOfMovieShowingRef] = useState(React.createRef());
+  const numOfMovieShowingRef = React.createRef();
 
-  const [sortByRef] = useState(React.createRef());
+  const sortByRef = React.createRef();
 
   const movies = useSelector((state) => state.movieList.movies);
 

@@ -1,0 +1,4 @@
+const PREFIX = "MAIN_";
+
+export const VIEW_TRAILER = `${PREFIX}VIEW_TRAILER`;
+export const IS_OPEN_VIDEO_TRAILER = `${PREFIX}IS_OPEN_VIDEO_TRAILER`;

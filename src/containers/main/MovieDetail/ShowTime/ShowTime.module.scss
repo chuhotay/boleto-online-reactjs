@@ -1,0 +1,116 @@
+@import "assets/sass/helpers/variables.scss";
+@import "assets/sass/helpers/mixins.scss";
+
+.ShowTime {
+  margin-top: $mg-3;
+  .Filter {
+    margin-top: $mg-3;
+    padding: $pd-3 $pd-1;
+    background-color: $color-purple;
+    text-align: left;
+    border-radius: 4px;
+    .Theater,
+    .Date {
+      @include textStyle($fs-1, $fw-2, $color-blue, $ls-1);
+      margin: 0 $mg-1;
+    }
+    select {
+      padding: 5px;
+      border-radius: 6px;
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+  .TicketPlan {
+    margin-top: $mg-4;
+    margin-bottom: $mg-5 + $mg-5;
+    max-height: 450px;
+    overflow: auto;
+    .Ticket {
+      background-color: #01183e;
+      border-bottom: 0.5px solid rgba(168, 188, 243, 0.192);
+      padding: $pd-2 0;
+      margin-top: $mg-2 - 5;
+      @include responsiveTo("col-lg") {
+        height: 80px;
+        line-height: 80px;
+        padding: 0;
+      }
+      &:hover {
+        .Branch {
+          .Left {
+            i {
+              color: $color-orange;
+            }
+          }
+          .Right {
+            i {
+              background-color: $color-blue;
+              color: $color-white;
+            }
+          }
+        }
+      }
+      .Branch {
+        overflow: auto;
+        white-space: nowrap;
+        .Left {
+          i {
+            transition: all 0.5s;
+            color: $color-red;
+            padding-right: $pd-1;
+            font-size: $fs-1 - 3;
+            @include responsiveTo("col-md") {
+              color: $color-white;
+            }
+          }
+          span {
+            @include textStyle($fs-1 - 3, $fw-2, $color-white, $ls-1);
+          }
+        }
+        .Right {
+          text-align: center;
+          i {
+            transition: all 0.5s;
+            width: 23px;
+            height: 23px;
+            line-height: 23px;
+            border-radius: 50%;
+            background-color: #17305f;
+            color: $color-purple-3;
+          }
+        }
+      }
+      .Hours {
+        overflow: auto;
+        white-space: nowrap;
+        @include responsiveTo("col") {
+          padding-top: $pd-1;
+          padding-bottom: $pd-1;
+        }
+        @include responsiveTo("col-lg") {
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+        .Item {
+          margin-right: $pd-2;
+          time {
+            background: url("../../../../assets/images/ticket.png");
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            padding: $pd-1 - 2 $pd-1;
+            color: $color-white;
+            font-size: $fs-1 - 2;
+            transition: all 0.5s;
+            &:hover {
+              cursor: pointer;
+              color: $color-blue;
+            }
+          }
+        }
+      }
+    }
+  }
+}

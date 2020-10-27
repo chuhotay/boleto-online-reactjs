@@ -1,0 +1,15 @@
+@import "assets/sass/helpers/variables.scss";
+@import "assets/sass/helpers/mixins.scss";
+
+.MovieSummery {
+  .Title {
+    color: $color-blue;
+  }
+  .Content {
+    margin-top: $mg-2;
+    p {
+      line-height: 1.7;
+      @include textStyle($fs-1 - 1, $fw-2, rgba(255, 255, 255, 0.8), $ls-1);
+    }
+  }
+}

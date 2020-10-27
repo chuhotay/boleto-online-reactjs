@@ -20,3 +20,17 @@ export const actFetchMovieDetail = (movieId) => {
       });
   };
 };
+
+export const actChangeShowTimeOption = (query) => {
+  return {
+    type: movieDetailConstants.CHANGE_SHOW_TIME_OPTION,
+    payload: query,
+  };
+};
+
+export const actGetIdShowTimeSelected = (idShowTime) => {
+  return {
+    type: movieDetailConstants.GET_ID_SHOW_TIME_SELECTED,
+    payload: idShowTime,
+  };
+};

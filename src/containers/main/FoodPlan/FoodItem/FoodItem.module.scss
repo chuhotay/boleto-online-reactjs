@@ -1,0 +1,86 @@
+@import "assets/sass/helpers/variables.scss";
+@import "assets/sass/helpers/mixins.scss";
+
+.FoodItem {
+  position: relative;
+  @include responsiveTo("col") {
+    padding-bottom: $pd-1;
+    padding-left: 5px !important;
+    padding-right: 5px !important;
+  }
+  @include responsiveTo("col-md") {
+    padding-bottom: $pd-3;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+  }
+  .CardContent {
+    background-color: #001332;
+    .Body {
+      background-color: #032055;
+      .Action {
+        margin-top: $mg-3;
+        border-top: 1px dashed #11326f;
+        padding-top: $pd-2;
+        text-align: center;
+        input {
+          height: 40px;
+          width: 50px;
+          text-align: center;
+          background-color: transparent;
+          border: 1px solid #11326f;
+          color: rgba(255, 255, 255, 0.6);
+          border-right: none;
+          border-left: none;
+          &:focus {
+            outline: none;
+          }
+        }
+        button {
+          background-color: transparent;
+          border: 1px solid #11326f;
+          color: rgba(255, 255, 255, 0.6);
+          height: 40px;
+          width: 40px;
+          &:focus {
+            outline: none;
+          }
+        }
+        .Minus {
+          border-radius: 50% 0 0 50%;
+        }
+        .Plus {
+          border-radius: 0 50% 50% 0;
+        }
+      }
+    }
+  }
+  .Price {
+    position: absolute;
+    top: 2px;
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    background: #31d7a9;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 75%, 0 100%, 0 0);
+    clip-path: polygon(50% 0%, 100% 0, 100% 100%, 50% 75%, 0 100%, 0 0);
+    @include responsiveTo("col") {
+      font-size: $fs-1 - 2;
+      min-width: 40px;
+      min-height: 45px;
+      line-height: 40px;
+      left: 30px;
+    }
+    @include responsiveTo("col-md") {
+      left: 40px;
+      font-size: $fs-1;
+      min-width: 50px;
+      min-height: 60px;
+      line-height: 50px;
+    }
+  }
+}

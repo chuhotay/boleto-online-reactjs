@@ -1,0 +1,102 @@
+@import "assets/sass/helpers/variables.scss";
+@import "assets/sass/helpers/mixins.scss";
+
+.BookingSummery {
+  color: white;
+  background-color: #032055;
+  border: 1px solid #11326f;
+  padding: $pd-3;
+  h4 {
+    text-align: center;
+    padding-bottom: $pd-3;
+    border-bottom: 1px dashed #11326f;
+  }
+  .TicketInfo {
+    .Info1 {
+      padding: $pd-3 0;
+      h5 {
+        text-transform: uppercase;
+      }
+      p {
+        @include textStyle($fs-1 - 2, $fw-2, $color-purple-3, $ls-1);
+        margin-bottom: 0;
+      }
+    }
+    .Info2 {
+      display: flex;
+      justify-content: space-between;
+      padding: $pd-2 0;
+      .Left {
+        p {
+          @include textStyle($fs-1 - 2, $fw-2, $color-purple-3, $ls-1);
+        }
+      }
+      .Right {
+        text-align: right;
+        span {
+          @include textStyle($fs-1 - 2, $fw-2, $color-purple-3, $ls-1);
+        }
+      }
+    }
+    .Info3 {
+      display: flex;
+      justify-content: space-between;
+      padding-top: $pd-2;
+      padding-bottom: $pd-3;
+    }
+    .Info4 {
+      display: flex;
+      justify-content: space-between;
+      padding-top: $pd-2;
+      padding-bottom: $pd-2;
+      border-bottom: 1px dashed #11326f;
+    }
+    .Info5 {
+      display: flex;
+      justify-content: space-between;
+      padding-top: $pd-3;
+      padding-bottom: $pd-2;
+      border-bottom: 1px dashed #11326f;
+      .Left {
+        p {
+          @include textStyle($fs-1 - 2, $fw-2, $color-purple-3, $ls-1);
+        }
+      }
+    }
+    .Info6 {
+      display: flex;
+      justify-content: space-between;
+      padding: $pd-3 0;
+    }
+    .Proceed {
+      text-align: center;
+    }
+  }
+}
+.Note {
+  margin-top: $mg-2;
+  p {
+    @include textStyle($fs-1, $fw-2, $color-white, $ls-1);
+  }
+  @include responsiveTo("col") {
+    text-align: center;
+  }
+  @include responsiveTo("col-lg") {
+    text-align: left;
+  }
+}
+.ModalContent {
+  text-align: center;
+  padding: $pd-3;
+  h3 {
+    font-weight: $fw-3;
+    font-size: $fs-3;
+    color: $color-blue;
+  }
+  p {
+    color: $color-purple;
+  }
+  button {
+    padding: $pd-1 - 2 $pd-3 + 2;
+  }
+}

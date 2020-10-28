@@ -1,0 +1,75 @@
+@import "assets/sass/helpers/mixins.scss";
+@import "assets/sass/helpers/variables.scss";
+
+.FoodPlan {
+  .Banner {
+    position: relative;
+    .BgImg {
+      background: url("../../../assets/images/banner04.jpg"),
+        -webkit-linear-gradient(-90deg, rgba(9, 58, 143, 0.842) 0%, #032257 100%);
+      background-position: center center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 400px;
+    }
+    .Overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: $color-purple;
+      opacity: 0.75;
+    }
+    .Content {
+      text-align: center;
+      z-index: 1;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translateX(-50%);
+      .MovieName {
+        @include textStyle(35px, $fw-3, rgba(255, 255, 255, 0.8), $ls-1);
+        @include responsiveTo("col-md") {
+          @include textStyle(50px, $fw-3, rgba(255, 255, 255, 0.8), $ls-1);
+        }
+      }
+      .Info {
+        @include textStyle($fs-1, $fw-2, rgba(255, 255, 255, 0.8), $ls-1);
+        @include responsiveTo("col-md") {
+          @include textStyle($fs-2, $fw-2, rgba(255, 255, 255, 0.8), $ls-1);
+        }
+      }
+    }
+  }
+  .CountDown {
+    background: #032055;
+    border-top: 1px solid #17305f;
+    border-bottom: 1px solid #17305f;
+  }
+  .MainContent {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    @include responsiveTo("col") {
+      padding: 0 $mg-2 !important;
+    }
+    @include responsiveTo("col-md") {
+      padding: 0 $mg-4 !important;
+    }
+    .Title {
+      h2 {
+        color: $color-blue;
+      }
+    }
+    .BookingSummery {
+      @include responsiveTo("col") {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+      }
+      @include responsiveTo("col-md") {
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+      }
+    }
+  }
+}

@@ -60,7 +60,11 @@ function MovieDetail() {
           <div className="col-lg-9">
             <MovieSummery />
             <ShowTime />
-            <PopupNotice id="popupChooseShowTime">
+            <PopupNotice
+              id="popupChooseShowTime"
+              preventClickOutSide="none"
+              preventESC="true"
+            >
               <div className="modal-body">
                 <p className="font-weight-bold">Welcome!</p>
                 <h3 className="text-info mb-4 font-weight-bold">

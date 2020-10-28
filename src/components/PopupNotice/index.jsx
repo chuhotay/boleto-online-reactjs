@@ -8,6 +8,8 @@ function PopupNotice(props) {
       tabIndex={-1}
       role="dialog"
       aria-labelledby={props.id}
+      data-keyboard={props.preventESC}
+      data-backdrop={props.preventClickOutSide}
       aria-hidden="true"
     >
       <div className="modal-dialog modal-dialog-centered" role="document">

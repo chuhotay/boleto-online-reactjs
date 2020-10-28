@@ -9,6 +9,7 @@ const initialState = {
   listTheatersOption: [],
   listDateOption: [],
   listShowTimePerOption: [],
+  idShowTimeSelected: null,
 };
 
 export default (state = initialState, { type, payload }) => {

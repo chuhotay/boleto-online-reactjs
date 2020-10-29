@@ -44,7 +44,11 @@ function MovieDetail() {
 
   const { idShowTimeSelected } = useSelector((state) => state.movieDetail);
 
-  const username = localStorageUtils.fetchFromStorage("userInfo").taiKhoan;
+  const username = null;
+
+  if (localStorageUtils.fetchFromStorage("userInfo")) {
+    username = localStorageUtils.fetchFromStorage("userInfo").taiKhoan;
+  }
 
   useEffect(() => {
     dispatch(movieDetailActions.actFetchMovieDetail(movieId));

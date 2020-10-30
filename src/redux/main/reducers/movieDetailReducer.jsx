@@ -67,16 +67,6 @@ export default (state = initialState, { type, payload }) => {
         // Set default show time option
         state.theaterSelected = state.listTheatersOption[0];
         state.dateSelected = state.listDateOption[0];
-
-        // Set theater filter
-        let theaterFilterUpdate = [];
-        payload.heThongRapChieu.forEach((brand) => {
-          brand.cumRapChieu.forEach((branch) => {
-            theaterFilterUpdate.push(branch);
-          });
-        });
-
-        state.theaterFilter = theaterFilterUpdate;
       }
       return { ...state };
 

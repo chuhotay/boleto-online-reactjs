@@ -6,6 +6,11 @@ const initialState = {
   movies: {},
   moviesSortBy: 1, // 1. All 2. Now showing 3. Coming
   listMoviesPerOption: [],
+  // Filter
+  theaterFilter: [],
+  dateFilter: [],
+  hourFilter: [],
+  filterResult: "",
 };
 
 export default (state = initialState, { type, payload }) => {
@@ -55,6 +60,46 @@ export default (state = initialState, { type, payload }) => {
       }
       return { ...state };
 
+    case movieListConstants.CHOOSE_MOVIE_FILTER:
+      let theaterFilterUpdate = [];
+      payload.heThongRapChieu.forEach((brand) => {
+        brand.cumRapChieu.forEach((branch) => {
+          theaterFilterUpdate.push(branch);
+        });
+      });
+
+      state.theaterFilter = theaterFilterUpdate;
+      return { ...state };
+
+    case movieListConstants.CHOOSE_THEATER_FILTER:
+      // Get list date filter
+      let listDateFilterUpdate = [];
+      state.theaterFilter.forEach((brand) => {
+        if (brand.tenCumRap === payload) {
+          brand.lichChieuPhim.forEach((date) => {
+            listDateFilterUpdate.push(date);
+          });
+        }
+      });
+
+      state.dateFilter = listDateFilterUpdate;
+      return { ...state };
+
+    case movieListConstants.CHOOSE_DATE_FILTER:
+      let listHourFilterUpdate = [...state.dateFilter];
+      state.hourFilter = listHourFilterUpdate.filter(
+        (hour) => hour.ngayChieuGioChieu.substring(0, 10) === payload
+      );
+      return { ...state };
+
+    case movieListConstants.CHOOSE_HOUR_FILTER:
+      for (let item of state.hourFilter) {
+        if (item.ngayChieuGioChieu.substring(11, 19) === payload) {
+          state.filterResult = item.maLichChieu;
+        }
+      }
+
+      return { ...state };
     default:
       return state;
   }

@@ -5,8 +5,50 @@ import "assets/sass/components/button.scss";
 import hours from "assets/images/exp.png";
 import theater from "assets/images/city.png";
 import date from "assets/images/date.png";
+import * as movieListActions from "redux/main/actions/movieListActions";
+import { withRouter, useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 function FilterBox() {
+  const dispatch = useDispatch();
+
+  const history = useHistory();
+
+  const {
+    movies,
+    theaterFilter,
+    dateFilter,
+    hourFilter,
+    filterResult,
+  } = useSelector((state) => state.movieList);
+
+  const onChangeMovieHandler = (e) => {
+    const movieId = e.target.value.split("- ")[1];
+    dispatch(movieListActions.actChooseMovieFilter(movieId));
+  };
+
+  const onChangeTheaterHandler = (e) => {
+    dispatch(movieListActions.actChooseTheaterFilter(e.target.value));
+  };
+
+  const onChangeDateHandler = (e) => {
+    dispatch(movieListActions.actChooseDateFilter(e.target.value));
+  };
+
+  const onChangeHourHandler = (e) => {
+    dispatch(movieListActions.actChooseHourFilter(e.target.value));
+  };
+
+  const renderDateFilterHandler = (dateFilter) => {
+    let uniqueDate = [];
+    dateFilter.forEach((item) => {
+      uniqueDate.push(item.ngayChieuGioChieu.substring(0, 10));
+    });
+
+    uniqueDate = uniqueDate.filter((v, i, a) => a.indexOf(v) === i);
+
+    return uniqueDate.map((date, index) => <option key={index}>{date}</option>);
+  };
   return (
     <div className={`${styles.Search} container-lg p-0`}>
       <div className={styles.Overlay}></div>
@@ -18,7 +60,24 @@ function FilterBox() {
               <h3 className={styles.Title}>WHAT ARE YOU LOOKING FOR</h3>
             </div>
             <div className="col-3 text-right d-none d-sm-block">
-              <button className="btn-gradient-square">PROCEED</button>
+              {filterResult ? (
+                <button
+                  className="btn-gradient-square"
+                  onClick={() => {
+                    history.push(`/seat-plan/${filterResult}`);
+                  }}
+                >
+                  PROCEED
+                </button>
+              ) : (
+                <button
+                  className="btn-gradient-square"
+                  style={{ cursor: "not-allowed" }}
+                  disabled
+                >
+                  PROCEED
+                </button>
+              )}
             </div>
           </div>
         </div>
@@ -32,10 +91,19 @@ function FilterBox() {
                   <img src={movie} alt="movie" />
                 </span>
                 <span className={styles.Type}>Movie</span>
-                <select className={styles.Select} defaultValue={"DEFAULT"}>
+                <select
+                  className={styles.Select}
+                  defaultValue={"DEFAULT"}
+                  onChange={onChangeMovieHandler}
+                >
                   <option value="DEFAULT" disabled>
                     Choose movie
                   </option>
+                  {movies.items?.map((movie, index) => (
+                    <option key={index}>
+                      {movie.tenPhim} - {movie.maPhim}
+                    </option>
+                  ))}
                 </select>
               </div>
               <div
@@ -45,10 +113,17 @@ function FilterBox() {
                   <img src={theater} alt="theater" />
                 </span>
                 <span className={styles.Type}>Theater</span>
-                <select defaultValue={"DEFAULT"} className={styles.Select}>
+                <select
+                  defaultValue={"DEFAULT"}
+                  className={styles.Select}
+                  onChange={onChangeTheaterHandler}
+                >
                   <option value="DEFAULT" disabled>
                     Choose theater
                   </option>
+                  {theaterFilter?.map((theater, index) => (
+                    <option key={index}>{theater.tenCumRap}</option>
+                  ))}
                 </select>
               </div>
               <div
@@ -58,10 +133,15 @@ function FilterBox() {
                   <img src={date} alt="date" />
                 </span>
                 <span className={styles.Type}>Date</span>
-                <select defaultValue={"DEFAULT"} className={styles.Select}>
+                <select
+                  defaultValue={"DEFAULT"}
+                  className={styles.Select}
+                  onChange={onChangeDateHandler}
+                >
                   <option value="DEFAULT" disabled>
                     Choose date
                   </option>
+                  {renderDateFilterHandler(dateFilter)}
                 </select>
               </div>
               <div
@@ -71,16 +151,42 @@ function FilterBox() {
                   <img src={hours} alt="hours" />
                 </span>
                 <span className={styles.Type}>Hour</span>
-                <select defaultValue={"DEFAULT"} className={styles.Select}>
+                <select
+                  defaultValue={"DEFAULT"}
+                  className={styles.Select}
+                  onChange={onChangeHourHandler}
+                >
                   <option value="DEFAULT" disabled>
                     Choose hour
                   </option>
+                  {hourFilter?.map((hour, index) => (
+                    <option key={index}>
+                      {hour.ngayChieuGioChieu.substring(11, 19)}
+                    </option>
+                  ))}
                 </select>
               </div>
               <div
                 className={`${styles.HoursOption} d-block d-sm-none col-12 col-sm-6 col-md-6 col-lg-3 mt-5 mt-lg-0`}
               >
-                <button className="btn-gradient-square">PROCEED</button>
+                {filterResult ? (
+                  <button
+                    className="btn-gradient-square"
+                    onClick={() => {
+                      history.push(`/seat-plan/${filterResult}`);
+                    }}
+                  >
+                    PROCEED
+                  </button>
+                ) : (
+                  <button
+                    className="btn-gradient-square"
+                    style={{ cursor: "not-allowed" }}
+                    disabled
+                  >
+                    PROCEED
+                  </button>
+                )}
               </div>
             </div>
           </form>
@@ -90,4 +196,4 @@ function FilterBox() {
   );
 }
 
-export default FilterBox;
+export default withRouter(FilterBox);

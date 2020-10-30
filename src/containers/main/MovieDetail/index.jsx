@@ -44,7 +44,7 @@ function MovieDetail() {
 
   const { idShowTimeSelected } = useSelector((state) => state.movieDetail);
 
-  const username = null;
+  let username = null;
 
   if (localStorageUtils.fetchFromStorage("userInfo")) {
     username = localStorageUtils.fetchFromStorage("userInfo").taiKhoan;

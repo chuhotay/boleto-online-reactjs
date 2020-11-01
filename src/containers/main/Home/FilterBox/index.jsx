@@ -6,6 +6,7 @@ import hours from "assets/images/exp.png";
 import theater from "assets/images/city.png";
 import date from "assets/images/date.png";
 import * as movieListActions from "redux/main/actions/movieListActions";
+import * as seatPlanActions from "redux/main/actions/seatPlanActions";
 import { withRouter, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -65,6 +66,8 @@ function FilterBox() {
                   className="btn-gradient-square"
                   onClick={() => {
                     history.push(`/seat-plan/${filterResult}`);
+                    dispatch(seatPlanActions.actClearShowTimeDetail());
+                    dispatch(movieListActions.actClearFilterResult());
                   }}
                 >
                   PROCEED
@@ -174,6 +177,8 @@ function FilterBox() {
                     className="btn-gradient-square"
                     onClick={() => {
                       history.push(`/seat-plan/${filterResult}`);
+                      dispatch(seatPlanActions.actClearShowTimeDetail());
+                      dispatch(movieListActions.actClearFilterResult());
                     }}
                   >
                     PROCEED

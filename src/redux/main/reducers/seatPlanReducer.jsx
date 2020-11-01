@@ -42,6 +42,10 @@ export default (state = initialState, action) => {
       state.listSelectedSeats = listSelectedSeatsUpdate;
       return { ...state };
 
+    case seatPlanConstants.CLEAR_SHOW_TIME_DETAIL:
+      state.showTimeDetails = {};
+      return { ...state };
+
     default:
       return state;
   }

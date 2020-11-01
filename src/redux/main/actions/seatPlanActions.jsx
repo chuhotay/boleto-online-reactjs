@@ -29,3 +29,9 @@ export const actGetSelectedSeats = (seat, seatNum, seatName) => {
     seatName,
   };
 };
+
+export const actClearShowTimeDetail = () => {
+  return {
+    type: seatPlanConstants.CLEAR_SHOW_TIME_DETAIL,
+  };
+};

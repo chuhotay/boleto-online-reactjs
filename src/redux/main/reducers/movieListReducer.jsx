@@ -98,7 +98,10 @@ export default (state = initialState, { type, payload }) => {
           state.filterResult = item.maLichChieu;
         }
       }
+      return { ...state };
 
+    case movieListConstants.CLEAR_FILTER_RESULT:
+      state.filterResult = "";
       return { ...state };
     default:
       return state;

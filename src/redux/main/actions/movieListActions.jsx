@@ -63,3 +63,9 @@ export const actChooseHourFilter = (hour) => {
     payload: hour,
   };
 };
+
+export const actClearFilterResult = () => {
+  return {
+    type: movieListConstants.CLEAR_FILTER_RESULT,
+  };
+};
